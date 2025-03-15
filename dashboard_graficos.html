@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gráficos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Dashboard Financeiro</h2>
+
+    <h3>Clientes Cadastrados</h3>
+    <canvas id="clientesChart"></canvas>
+
+    <h3>Gastos Operacionais</h3>
+    <canvas id="gastosChart"></canvas>
+
+    <script>
+        // Gráfico de Clientes Cadastrados
+        var clientesData = {
+            labels: ["Registrato", "Blinda Nome"],
+            datasets: [{
+                label: "Clientes por Projeto",
+                data: [10, 15], // Substituir por valores dinâmicos
+                backgroundColor: ["#36A2EB", "#FF6384"]
+            }]
+        };
+
+        var ctxClientes = document.getElementById("clientesChart").getContext("2d");
+        new Chart(ctxClientes, {
+            type: "pie",
+            data: clientesData
+        });
+
+        // Gráfico de Gastos Operacionais
+        var gastosData = {
+            labels: ["Gastos Gerais", "Gastos por Produto"],
+            datasets: [{
+                label: "Gastos Operacionais",
+                data: [5000, 3000], // Substituir por valores dinâmicos
+                backgroundColor: ["#4BC0C0", "#FFCE56"]
+            }]
+        };
+
+        var ctxGastos = document.getElementById("gastosChart").getContext("2d");
+        new Chart(ctxGastos, {
+            type: "bar",
+            data: gastosData
+        });
+    </script>
+</body>
+</html>

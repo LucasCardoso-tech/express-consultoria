@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastos Operacionais - Express Consultoria</title>
+</head>
+<body>
+    <h2>Gastos Operacionais</h2>
+    <ul>
+        <th:block th:each="gasto : ${gastos}">
+            <li th:text="'Tipo: ' + ${gasto.tipo} + ' | Valor: R$ ' + ${gasto.valor} + ' | Obs: ' + ${gasto.observacao}"></li>
+        </th:block>
+    </ul>
+
+    <h3>Adicionar Gasto</h3>
+    <form action="/gastos/adicionar" method="post">
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" required>
+        <br>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" step="0.01" required>
+        <br>
+        <label for="observacao">Observação:</label>
+        <input type="text" id="observacao" name="observacao">
+        <br>
+        <button type="submit">Adicionar</button>
+    </form>
+</body>
+</html>

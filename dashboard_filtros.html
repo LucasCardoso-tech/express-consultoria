@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Filtros</title>
+</head>
+<body>
+    <h2>Dashboard de Pagamentos</h2>
+
+    <h3>Filtrar por Projeto</h3>
+    <form method="get" action="/dashboard">
+        <label for="projeto">Escolha um projeto:</label>
+        <select id="projeto" name="projeto">
+            <option value="registrato">Registrato</option>
+            <option value="blinda_nome">Blinda Nome</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <h3>Relatório de Pagamentos</h3>
+    <table border="1">
+        <tr>
+            <th>Cliente</th>
+            <th>Projeto</th>
+            <th>Status</th>
+            <th>Valor</th>
+        </tr>
+        <th:block th:each="pagamento : ${pagamentos}">
+            <tr>
+                <td th:text="${pagamento.cliente}"></td>
+                <td th:text="${pagamento.projeto}"></td>
+                <td th:text="${pagamento.status}"></td>
+                <td th:text="'R$ ' + ${pagamento.valor}"></td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>
